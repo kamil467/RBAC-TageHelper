@@ -9,3 +9,13 @@ User will be assigned to n – number of roles. Each role will be n – number o
 # Archiecture Diagram.
 
 ![image](https://user-images.githubusercontent.com/31802480/121765726-b47d1400-cb6a-11eb-91b0-f5aeabce2c81.png)
+
+Features :
+
+•	It consists of two filters (Authorization and ActionExection)
+•	Authorization is the first filter execute in RBAC pipeline. It reads the user request and retrieve principle name from it. There will be an API call to database which retrieve as user data, roles and permission description using the principle name.
+•	Retrieved value will be stored in distributed cache for future request. 
+•	Authorization filter reads current user request and get route value of controller and action.
+•	Route value will be checked against user permission list. If record found, then user request will be passed over to next middleware component and allow the user to see the page and user roles list will be stored in view data for future uses throughout the request. This roles list will not be available for next request.   
+•	If record not found, then user will be navigated custom unauthorized page.
+
