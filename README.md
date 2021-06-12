@@ -6,11 +6,11 @@ Roles Based Access Control is an approach to restricting system access to author
  In our system, each role determines which areas of the application the role can access via application permissions.  Application permissions define MVC controller names and controller action names represented as a string concatenation of the two properties in the format controller-action (eg “admin-index”).  Application permissions are unique which can be traced back to their controller-action references. We will be using the format of controller-action as permission entity and assigned to Roles to provide access for users.
 User will be assigned to n – number of roles. Each role will be n – number of permission(controller-action). 
 
-# Archiecture Diagram.
+# Archiecture Diagram
 
 ![image](https://user-images.githubusercontent.com/31802480/121765726-b47d1400-cb6a-11eb-91b0-f5aeabce2c81.png)
 
-Features :
+# Implementation 
 
 •	It consists of two filters (Authorization and ActionExection)
 •	Authorization is the first filter execute in RBAC pipeline. It reads the user request and retrieve principle name from it. There will be an API call to database which retrieve as user data, roles and permission description using the principle name.
